@@ -8,6 +8,8 @@ class ChannelModel(Base):
     __tablename__ = "channels"
 
     channel_id: Mapped[str] = mapped_column(String, primary_key=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"), unique=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    access_token: Mapped[str] = mapped_column(String, unique=True)
+    refresh_token: Mapped[str] = mapped_column(String, unique=True)
 
 

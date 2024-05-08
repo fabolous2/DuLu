@@ -51,11 +51,34 @@ async def profile_handler(
     )
 
 
+# YouTube Studio
 @router.callback_query(F.data == 'youtube_studio')
 async def youtube_studio_handler(
         query: CallbackQuery,
+        bot: Bot,
+        event_chat: Chat,
 ) -> None:
-    pass
+    await bot.edit_message_text(
+        text='Добавьте аккаунт',
+        chat_id=event_chat.id,
+        message_id=query.message.message_id,
+        reply_markup=inline.add_account_kb_markup
+    )
+
+
+# TODO: генерация ссылки на аутентификацию и передача ее в inline кнопку (web app)
+@router.callback_query(F.data == 'add_account')
+async def add_account_handler(
+        query: CallbackQuery,
+        bot: Bot,
+        event_chat: Chat,
+) -> None:
+    await bot.edit_message_text(
+        text='Перейдите по ссылке ниже и дайте доступ нашему приложению',
+        chat_id=event_chat.id,
+        message_id=query.message.message_id,
+        reply_markup=...
+    )
 
 
 # SUPPORT HANDLERS

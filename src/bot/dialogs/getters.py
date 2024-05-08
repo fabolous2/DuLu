@@ -5,12 +5,10 @@ from aiogram_dialog.widgets.input import TextInput
 from aiogram_dialog.api.entities import MediaAttachment, MediaId
 from aiogram_dialog.widgets.common import ManagedScroll
 
-from dishka.integrations.base import wrap_injection
 from dishka import FromDishka
 
 from src.bot.dialogs.inject_wrappers import inject_getter
 from src.services import SupportService
-from src.schemas import Letter
 
 
 async def get_letter(dialog_manager: DialogManager, **kwargs):
@@ -27,8 +25,7 @@ async def get_letter(dialog_manager: DialogManager, **kwargs):
         )
     else:
         media = MediaAttachment(
-            url="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637",
-            # noqa: E501
+            url="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637",  # noqa: E501
             type=ContentType.PHOTO,
         )
 

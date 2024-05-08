@@ -38,3 +38,11 @@ write_letter_kb_markup = InlineKeyboardMarkup(
         ],
     ]
 )
+
+add_account_kb_markup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text='➕ Добавить аккаунт', callback_data='add_account')
+        ]
+    ]
+)
